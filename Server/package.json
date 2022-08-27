@@ -9,10 +9,9 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node ./server.js",
-    "serve": "nodemon server.js",
-    "build": "react-scripts build",
-    "deploy": "serve -s build"
+    "start": "nodemon server.js",
+    "serve": "nodemon server.js"
+
 
   },
   "author": "pavanbutke",
