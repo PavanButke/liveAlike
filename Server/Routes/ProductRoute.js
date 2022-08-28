@@ -1,6 +1,6 @@
-import express from "express";
-import asyncHandler from "express-async-handler";
-import Product from "./../Models/productModel.js";
+const express =  require("express");
+const asyncHandler =  require("express-async-handler");
+const Product =  require("./../Models/productModel");
 
 
 const productRoute = express.Router();
@@ -21,7 +21,7 @@ productRoute.get(
             : {};
         const count = await Product.countDocuments({ ...keyword });
         const products = await Product.find({ ...keyword }).limit(pageSize).skip(pageSize * (page - 1)).sort({ _id: -1 });
-        res.json({ products, page, pages: Math.ceil(count / pageSize) });
+        reson({ products, page, pages: Math.ceil(count / pageSize) });
     })
 );
 
@@ -31,11 +31,14 @@ productRoute.get(
     asyncHandler(async (req, res) => {
         const product = await Product.findById(req.params.id);
         if (product) {
-            res.json(product);
+            reson(product);
         } else {
             res.status(404);
             throw new Error("Product not Found");
         }
     })
 );
-export default productRoute;
+
+module.exports = productRoute;
+
+//export default productRoute;

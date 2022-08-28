@@ -1,5 +1,4 @@
-
-import  jwt  from 'jsonwebtoken';
+const  jwt = require('jsonwebtoken');
 
 
 const generateToken = (id) => {
@@ -8,4 +7,6 @@ const generateToken = (id) => {
         expiresIn: "30d",
     });
 };
-export default generateToken;
+
+module.exports = generateToken;
+//export default generateToken;

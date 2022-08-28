@@ -5,14 +5,12 @@
     "node": "8.5.0"
   },
   "description": "",
-  "type": "module",
+  "type": "commonjs",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon server.js",
     "serve": "nodemon server.js"
-
-
   },
   "author": "pavanbutke",
   "license": "ISC",
@@ -26,6 +24,7 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.5.0",
     "morgan": "^1.10.0",
+    "netlify-lambda": "^2.0.15",
     "razorpay": "^2.8.3",
     "shortid": "^2.2.16"
   },

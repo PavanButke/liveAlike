@@ -1,8 +1,9 @@
-import express from "express";
-import asyncHandler from "express-async-handler";
-import User from "../Models/UserModel.js";
-import generateToken from '../utils/generateToken.js';
-import protect from '../Middleware/AuthMiddleware.js';
+const express =  require("express");
+const asyncHandler =  require("express-async-handler");
+const User =  require("../Models/UserModel");
+const generateToken =  require('../utils/generateToken');
+const protect =  require('../Middleware/AuthMiddleware');
+
 
 
 const userRouter = express.Router();
@@ -16,7 +17,7 @@ userRouter.post(
         const { email, password } = req.body;
         const user = await User.findOne({ email });
         if (user && (await user.matchPassword(password))) {
-            res.json({
+            reson({
                 _id: user._id,
                 name: user.name,
                 email: user.email,
@@ -74,7 +75,7 @@ userRouter.get(
     asyncHandler(async (req, res) => {
         const user = await User.findById(req.user._id);
         if (user) {
-            res.json({
+            reson({
                 _id: user._id,
                 name: user.name,
                 email: user.email,
@@ -117,7 +118,7 @@ userRouter.put(
                 user.password = req.body.password
             }
             const updatedUser = await user.save()
-            res.json({
+            reson({
                 _id: updatedUser._id,
                 name: updatedUser.name,
                 email: updatedUser.email,
@@ -133,5 +134,6 @@ userRouter.put(
 );
 
 
+module.exports = userRouter;
 
-export default userRouter;
+//export default userRouter;

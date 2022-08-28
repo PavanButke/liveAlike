@@ -1,4 +1,6 @@
-import bcrypt from "bcryptjs";
+
+const mongoose =  require("mongoose");
+const bcrypt = require("bcryptjs")
 
 const users = [
     {
@@ -19,5 +21,7 @@ const users = [
  
   ];
   
-  export default users;
+  module.exports = users;
+
+ // export default users;
   

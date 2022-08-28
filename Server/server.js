@@ -1,19 +1,18 @@
-import express from "express";
-import dotenv from "dotenv";
-import connectDatabase from "./config/Mongodb.js";
-import ImportData from "./DataImport.js"
-import productRoute from './Routes/ProductRoute.js';
-import { errorHandler, notFound } from "./Middleware/Errors.js";
-import userRouter from './Routes/UserRoutes.js';
-import orderRouter from "./Routes/OrderRoutes.js";
-import Razorpay from 'razorpay';
-import shortid from 'shortid';
-import Order from "./Models/orderModel.js";
-// import paymentRoutes from './Routes/paymentRoutes.js';
-import cors from "cors";
-import mongoose from "mongoose";
+const express = require('express');
+const dotenv = require('dotenv');
+const connectDatabase =  require('./config/MongoDb');
+const ImportData =  require('./DataImport');
+const productRoute =  require('./Routes/ProductRoute');
+const  errorHandler  =  require("./Middleware/Errors");
+const userRouter =  require('./Routes/UserRoutes');
+const orderRouter =  require("./Routes/OrderRoutes");
+const Razorpay =  require('razorpay');
+const shortid =  require('shortid');
+const Order =  require("./Models/orderModel");
+const cors =  require("cors");
+const mongoose =  require("mongoose");
+const bodyParser =  require('body-parser');
 
-import bodyParser from 'body-parser';
 
 
 dotenv.config();
@@ -98,7 +97,7 @@ app.get("/", (req, res) => {
 
   
 
-const PORT = process.env.PORT || 1000;
+const PORT = process.env.PORT ||1000;
 app.listen(PORT, console.log(`server run in port ${PORT}`));
 
 

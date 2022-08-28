@@ -1,10 +1,7 @@
-import express from "express";
-import asyncHandler from "express-async-handler";
-
-import protect from './../Middleware/AuthMiddleware.js';
-import Order from './../Models/orderModel.js';
-
-
+const express =  require("express");
+const asyncHandler =  require("express-async-handler");
+const protect =  require('./../Middleware/AuthMiddleware');
+const Order =  require('./../Models/orderModel');
 
 const orderRouter = express.Router();
 
@@ -60,7 +57,7 @@ orderRouter.get(
        )
 
         if(order){
-            res.json(order)
+            reson(order)
         }else{
                 
             res.status(404)
@@ -78,7 +75,7 @@ orderRouter.get(
     asyncHandler(async (req, res) => {
        const order= await Order.find({user: req.user_id}).sort({_id:-1});
         if(order){
-            res.json(order)
+            reson(order)
         }
     })
 );
@@ -103,7 +100,7 @@ orderRouter.put(
                 email_address: req.body.email_address,
              };
         const updatedOrder = await order.save();
-        res.json(updatedOrder);
+        reson(updatedOrder);
 
         
         }else{
@@ -115,4 +112,6 @@ orderRouter.put(
     })
 );
 
-export default orderRouter;
+module.exports = orderRouter;
+
+//export default orderRouter;
